@@ -383,14 +383,14 @@ class Mario(pg.sprite.Sprite):
 
     def get_image(self, x, y, width, height):
         """Extracts image from sprite sheet"""
-        image = pg.Surface([width, height])
+        image = pg.Surface([5.0*width, 5.0*height])
         rect = image.get_rect()
 
-        image.blit(self.sprite_sheet, (0, 0), (x, y, width, height))
+        image.blit(self.sprite_sheet, (0, 0), (5.0*x, 5.0*y, 5.0*width, 5.0*height))
         image.set_colorkey(c.BLACK)
         image = pg.transform.scale(image,
-                                   (int(rect.width*c.SIZE_MULTIPLIER),
-                                    int(rect.height*c.SIZE_MULTIPLIER)))
+                                   (int(rect.width*c.MARIO_SIZE_MULTIPLIER),
+                                    int(rect.height*c.MARIO_SIZE_MULTIPLIER)))
         return image
 
 
